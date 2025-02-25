@@ -1,3 +1,4 @@
+// Generics are represented by using like this '< >'. it can be any thing like function or class
 const score: Array<number> = [];
 const names: Array<string> = [];
 
@@ -47,7 +48,7 @@ const getMoreSearchProducts = <T>(products: Array<T>): T => {
   return products[myIndex];
 };
 
-//
+//How the generics can extend the other user define types like intereface
 interface Database {
   connection: string;
   username: string;
@@ -60,3 +61,23 @@ function anothereFunction<T, U extends Database>(valOne: T, valTwo: U): object {
   };
 }
 anothereFunction(3, { connection: "", username: "", password: "" });
+
+//
+interface Quiz {
+  name: string;
+  type: string;
+}
+
+interface Course {
+  name: string;
+  author: string;
+  subject: string;
+}
+
+class Sellable<T> {
+  public cart: T[] = [];
+
+  addToCart(product: T) {
+    this.cart.push(product);
+  }
+}
